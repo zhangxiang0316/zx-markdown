@@ -5,18 +5,21 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "lib": "set NODE_OPTIONS=--openssl-legacy-provider && vite build --target lib --name zx-markdown --dest lib ./src/components/index.js",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "clipboard": "^2.0.11",
     "highlight.js": "^11.11.1",
     "markdown-it": "^14.1.0",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-deflist": "^3.0.0",
     "markdown-it-emoji": "^3.0.0",
     "markdown-it-ins": "^4.0.0",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-sub": "^2.0.0",
     "markdown-it-sup": "^2.0.0",
+    "markdown-it-task-lists": "^2.1.1",
     "vue": "^3.5.13"
   },
   "devDependencies": {

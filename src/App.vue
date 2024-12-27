@@ -1,7 +1,5 @@
 <template>
-  <div style="width: 100vw;">
-    <zx-markdown v-model:markdownValue="value" :loading="false"/>
-  </div>
+  <zx-markdown v-model:markdownValue="value" :loading="false"/>
 </template>
 
 <script setup>
@@ -9,6 +7,23 @@ import {ref} from "vue";
 
 let value = ref(`
  :), :-)
+ - [x] 2022-3-4 新增添加新图表功能,新增查看属性功能，点击跳转Echarts 官网查看属性相关信息
+
+- [x] 2022-3-5 新增用户系统，注册后新创建的表单在个人中心可以看到
+
+- [x] 2022-3-7 新增图表支持使用网络js 或者项目中原有的js
+
+- [x] 2022-3-8 添加收藏功能
+
+- [x] 2022-3-9 新增下载案例功能，支持案例导出为html(外部链接支持，代码中引用的外部json暂不支持，弱存在内部引用，导出后修改引用地址)
+
+- [x] 2022-3-9 对于显示有问题的图表，添加iframe 展示方式，点击右上角切换模式查看
+
+- [x] 2022-3-31 修改部分图片不展示问题，取消图片懒加载
+
+- [x] 2022-4-2  编辑器添加echarts 属性智能提示
+
+- [x] 2022-4-8 调整版本切换策略
 
 ## **粗体**
 \`\`\`
