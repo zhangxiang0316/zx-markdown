@@ -5,11 +5,11 @@
 </template>
 
 <script setup>
-import Markdown from "./markdown.vue";
+import Markdown from "./components/markdown.vue";
 import {ref} from "vue";
 
 let value = ref(`
- ":)", ":-)"
+ :), :-)
 
 ## **粗体**
 \`\`\`
@@ -888,13 +888,5 @@ md.use(highlightjs, hljsOpts)
 </script>
 
 <style scoped>
-:deep(.hljs) {
-  background: #50556B !important;
-  border-radius: 3px;
-  padding: 5px;
-}
 
-:deep(code) {
-  color: #ccc !important;
-}
 </style>

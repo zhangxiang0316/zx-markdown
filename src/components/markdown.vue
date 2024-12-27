@@ -4,6 +4,7 @@
 
 <script setup>
 import {computed} from "vue";
+
 import MarkdownIt from "markdown-it";
 // 下标
 import sub from 'markdown-it-sub'
@@ -12,13 +13,13 @@ import sup from 'markdown-it-sup'
 // 数学公式
 import katex from 'markdown-it-katex'
 // Echarts图表
-import EchartsPlugin from './custom/echarts'
+import EchartsPlugin from '../utils/echarts.js'
 // 分割线
-import spanLine from './custom/span-line'
+import spanLine from '../utils/span-line.js'
 //下划线 ++下换线++
 import ins from 'markdown-it-ins'
 // emoji表情
-import { full as emoji } from 'markdown-it-emoji'
+import {full as emoji} from 'markdown-it-emoji'
 
 // 代码高亮
 import hljs from "highlight.js/lib/core";
@@ -124,9 +125,15 @@ md
 const value = computed(() => {
   return md.render(markdownValue.value)
 })
-
-
 </script>
+<style scoped>
+:deep(.hljs) {
+  background: #50556B !important;
+  border-radius: 3px;
+  padding: 5px;
+}
 
-<style>
+:deep(code) {
+  color: #ccc !important;
+}
 </style>

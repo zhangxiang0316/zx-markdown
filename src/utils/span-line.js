@@ -5,7 +5,7 @@
  */
 
 export  default function spanLine(markdown) {
-    markdown.inline.ruler.push('custom', (state, silent) => {
+    markdown.inline.ruler.push('utils', (state, silent) => {
         const start = state.pos;
         const max = state.posMax;
         if (state.src[start] !== '[' || state.src[start + 1] !== '[') {
