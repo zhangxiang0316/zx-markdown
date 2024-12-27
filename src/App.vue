@@ -1,11 +1,10 @@
 <template>
   <div style="width: 100vw;">
-    <markdown v-model:markdownValue="value" :loading="false"/>
+    <zx-markdown v-model:markdownValue="value" :loading="false"/>
   </div>
 </template>
 
 <script setup>
-import Markdown from "./components/markdown.vue";
 import {ref} from "vue";
 
 let value = ref(`
