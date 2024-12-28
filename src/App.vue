@@ -7,6 +7,22 @@ import {ref} from "vue";
 
 let value = ref(`
  :), :-)
+
+ \`\`\`css
+    .markdown-body {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .markdown-body img {
+        max-width: 100%;
+    }
+    .markdown-body pre {
+        background-color: #f6f8fa;
+        border-radius: 6px;
+    }
+ \`\`\`
+
+
  - [x] 2022-3-4 新增添加新图表功能,新增查看属性功能，点击跳转Echarts 官网查看属性相关信息
 
 - [x] 2022-3-5 新增用户系统，注册后新创建的表单在个人中心可以看到
