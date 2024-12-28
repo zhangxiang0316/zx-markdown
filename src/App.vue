@@ -3,27 +3,17 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
-
-let value = ref(`
- :), :-)
-
- \`\`\`css
-    .markdown-body {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-    .markdown-body img {
-        max-width: 100%;
-    }
-    .markdown-body pre {
-        background-color: #f6f8fa;
-        border-radius: 6px;
-    }
- \`\`\`
+import { ref } from "vue";
+// 使用动态导入
+const value = ref(`
 
 
- - [x] 2022-3-4 新增添加新图表功能,新增查看属性功能，点击跳转Echarts 官网查看属性相关信息
+12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。<span><a target="_blank" href='https://mparticle.uc.cn/article.html?uc_param_str=frdnsnpfvecpntnwprdssskt#!wm_aid=9e2166d7fd27f788a69f5c5868260a74!!wm_id=ae137f9360e14236bf45147e896de8f7!!admincptm=1733360935238'>1<span>在海南省三亚市海棠区海南环岛旅游公路上发生一起车祸，一名年轻女性机车骑手去世。</span></a></span><span><a target="_blank" href='https://mparticle.uc.cn/article.html?uc_param_str=frdnsnpfvecpntnwprdssskt#!wm_aid=00895a900d5695994d44488af55dc018!!wm_id=ae137f9360e14236bf45147e896de8f7'>2<span>在海南省三亚市海棠区海南环岛旅游公路上发生一起车祸，一名年轻女性机车骑手去世。</span></a></span><span><a target="_blank" href='https://3g.china.com/act/news/10000169/20241205/47704514.html'>3<span>在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。</span></a></span><span><a target="_blank" href='https://mparticle.uc.cn/article_org.html?uc_param_str=frdnsnpfvecpntnwprdssskt#!wm_cid=656991714453497856!!wm_id=ae137f9360e14236bf45147e896de8f7'>5<span>在海南省三亚市海棠区海南环岛旅游公路上发生一起车祸，一名年轻女性机车骑手去世。</span></a></span>]][[该女骑手网名叫“DJ万小橘”，拥有1.4万粉丝，以机车骑行出名<span><a target="_blank" href='https://mparticle.uc.cn/article.html?uc_param_str=frdnsnpfvecpntnwprdssskt#!wm_aid=9e2166d7fd27f788a69f5c5868260a74!!wm_id=ae137f9360e14236bf45147e896de8f7!!admincptm=1733360935238'>1<span>该女骑手网名叫“DJ万小橘”，</span></a></span><span><a target="_blank" href='https://mparticle.uc.cn/article.html?uc_param_str=frdnsnpfvecpntnwprdssskt#!wm_aid=00895a900d5695994d44488af55dc018!!wm_id=ae137f9360e14236bf45147e896de8f7'>2<span>该女骑手网名叫“DJ万小橘”，</span></a></span><span><a target="_blank" href='https://mparticle.uc.cn/article_org.html?uc_param_str=frdnsnpfvecpntnwprdssskt#!wm_cid=656991714453497856!!wm_id=ae137f9360e14236bf45147e896de8f7'>5<span>该女骑手网名叫“DJ万小橘”，</span></a></span>]]。案件正在处理中，[[具体情况暂时不便透露。<span><a target="_blank" href='https://m.toutiao.com/article/7444189875328352795/'>7<span>具体情况暂时不便透露。</span></a></span>]]
+
+
+
+
+- [x] 2022-3-4 新增添加新图表功能,新增查看属性功能，点击跳转Echarts 官网查看属性相关信息
 
 - [x] 2022-3-5 新增用户系统，注册后新创建的表单在个人中心可以看到
 
@@ -896,7 +886,7 @@ int main()
 | ------------ | ------ | --- |
 | 撒旦法萨法 | 大萨达 | 收拾收拾 |
 
-## $\\KaTeX$公式
+## KaTeX$公式
 
 我们可以渲染公式例如：$x_i + y_i = z_i$和$\\sum_{i=1}^n a_i=0$
 我们也可以单行渲染
@@ -917,6 +907,57 @@ md.use(highlightjs, hljsOpts)
 
 </script>
 
-<style scoped>
+<style>
+.markdown-content li {
+  margin-left: 20px;
+  margin-top: 10px;
+}
 
+.markdown-content span a {
+  position: relative;
+  overflow: visible; /* 让内容超出父元素布局 */
+  clip: auto;
+  display: inline-block;
+  text-decoration: none;
+  color: #7269FB;
+  line-height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  text-align: center;
+  font-size: 12px;
+  background: #7269FB1A;
+  border-radius: 50%;
+}
+
+.markdown-content span a:hover {
+  color: white;
+  background: #7269FB;
+  border-radius: 50%; /* 将伪元素的边框半径设置为50%，使背景呈现圆形 */
+}
+
+.markdown-content span:hover {
+  border-bottom: 1px dashed #7269FB;
+}
+
+.markdown-content span a span {
+  visibility: hidden;
+  max-width: 300px;
+  min-width: 250px;
+  max-height: 500px;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+  position: absolute;
+  z-index: 10;
+  top: 30px;
+  left: 0;
+  right: 0;
+}
+
+.markdown-content span a:hover span {
+  visibility: visible;
+}
 </style>

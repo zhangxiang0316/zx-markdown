@@ -1,5 +1,5 @@
 <template>
-  <div v-html="value"></div>
+  <div v-html="value" class="markdown-content"></div>
 </template>
 
 <script setup>
