@@ -20,6 +20,7 @@
 示例图 ![image](./public/img.png)
 
 ## echarts图表
+```
 
 ```echarts
 {
@@ -112,6 +113,7 @@
     ]
 }
 
+```
 ```
 
 示例图 ![image](./public/img_1.png)
