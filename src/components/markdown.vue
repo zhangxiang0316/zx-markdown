@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+import 'github-markdown-css'
 import {computed, onMounted} from "vue";
 import MarkdownIt from "markdown-it";
 // 下标
@@ -14,7 +15,7 @@ import katex from 'markdown-it-katex'
 // Echarts图表
 import EchartsPlugin from '../plug/echarts.js'
 // 分割线
-import spanLine from '../plug/span-line.js'
+import quote from '../plug/quote.js'
 //下划线 ++下换线++
 import ins from 'markdown-it-ins'
 // emoji表情
@@ -49,7 +50,7 @@ md.use(highlight)
     .use(emoji)
     .use(katex)
     .use(EchartsPlugin, props.loading)
-    .use(spanLine)
+    .use(quote)
     .use(ins)
     .use(taskLists)
     .use(deflist)
@@ -71,6 +72,10 @@ onMounted(() => {
 })
 </script>
 <style scoped>
+:deep(ul li) {
+  list-style-type: none;
+}
+
 :deep(.hljs) {
   background: #50556B !important;
   border-radius: 3px;

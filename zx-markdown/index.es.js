@@ -8103,11 +8103,77 @@ function Ao(e) {
     if (n >= r)
       return !1;
     if (!u) {
-      const c = t.push("custom_inline", "", 0);
-      c.content = t.src.slice(i + 2, n);
+      const c = t.push("custom_inline", "", 0), a = t.src.slice(i + 2, n), s = /「(\[.*\])」/, l = a.match(s);
+      let f = [];
+      if (l && l[1])
+        try {
+          f = JSON.parse(l[1]), c.content = a.replace(s, ""), c.comeForm = f;
+        } catch (m) {
+          console.error("解析数组失败:", m);
+        }
+      else
+        console.log("未找到符合条件的数组");
     }
     return t.pos = n + 2, !0;
-  }), e.renderer.rules.custom_inline = (t, u) => `<span class="custom">${t[u].content}</span>`;
+  }), e.renderer.rules.custom_inline = (t, u) => {
+    let i = "";
+    for (let r = 0; r < t[u].comeForm.length; r++) {
+      const n = t[u].comeForm[r];
+      i += `<a class="come-from" target="_blank" href="${n.href}">${n.index}
+                         <span class="come-from-detail">${n.value}</span>
+                     </a> `;
+    }
+    return `<span class="custom">
+                    ${t[u].content}
+                    <span class="from">${i}</span>
+                    <style>
+                     .custom:hover{
+                          border-bottom: 1px dashed #7269FB;
+                        }
+                        .come-from{
+                          position: relative;
+                          overflow: visible;
+                          clip: auto;
+                          display: inline-block;
+                          text-decoration: none;
+                          color: #7269FB;
+                          line-height: 20px;
+                          width: 20px;
+                          margin-right: 10px;
+                          text-align: center;
+                          font-size: 12px;
+                          background: #7269FB1A;
+                          border-radius: 50%;
+                        }
+                        .come-from:hover {
+                          color: white;
+                          background: #7269FB;
+                          border-radius: 50%;
+                        }
+                       
+                        .come-from-detail{
+                          visibility: hidden;
+                          max-width: 300px;
+                          min-width: 250px;
+                          max-height: 500px;
+                          overflow-y: scroll;
+                          background: rgba(0, 0, 0, 0.7);
+                          color: #fff;
+                          padding: 10px;
+                          border-radius: 10px;
+                          text-align: center;
+                          position: absolute;
+                          z-index: 10;
+                          top: 30px;
+                          left: 0;
+                          right: 0;
+                        }
+                        .come-from:hover .come-from-detail{
+                          visibility: visible;
+                        }
+                        </style>
+                 </span>`;
+  };
 }
 function Co(e) {
   function t(i, r) {
@@ -17182,9 +17248,12 @@ const xs = /* @__PURE__ */ F0(gs), ys = (e, t) => {
           l.textContent = "复制";
         }, 1e3), s.clearSelection();
       });
-    }), (a, s) => (fr(), dr("div", { innerHTML: c.value }, null, 8, vs));
+    }), (a, s) => (fr(), dr("div", {
+      innerHTML: c.value,
+      class: "markdown-content"
+    }, null, 8, vs));
   }
-}, ws = /* @__PURE__ */ ys(ks, [["__scopeId", "data-v-54f2e58a"]]), As = (e) => {
+}, ws = /* @__PURE__ */ ys(ks, [["__scopeId", "data-v-4f3d31f4"]]), As = (e) => {
   e.component("zx-markdown", ws);
 };
 export {

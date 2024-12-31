@@ -1,17 +1,24 @@
-<template>
-  <zx-markdown v-model:markdownValue="value" :loading="false"/>
-</template>
+# zx-markdown
 
-<script setup>
-import {ref} from "vue";
-// 使用动态导入
-const value = ref(`
+```vue
 
+<zx-markdown v-model:markdownValue="value" :loading="false"/>
 
+支持字段loading 为true时显示加载中，不渲染echarts图表
 
+```
 
-12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"},{"index":2,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"}]」]]
-\`\`\`echarts
+## 引用
+
+```angular2html
+12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"},{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"}]」]] 12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世"}」]]
+```
+
+示例图 ![image](img.png)
+
+## echarts图表
+
+```echarts
 {
     "backgroundColor": "#ccc",
     "angleAxis": {
@@ -102,83 +109,6 @@ const value = ref(`
     ]
 }
 
-\`\`\`
+```
 
-`)
-
-</script>
-
-<style>
-.markdown-content li {
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-/* 整个滚动条 */
-::-webkit-scrollbar {
-  /* 对应纵向滚动条的宽度 */
-  width: 5px;
-  /* 对应横向滚动条的宽度 */
-  height: 5px;
-}
-
-/* 滚动条上的滚动滑块 */
-::-webkit-scrollbar-thumb {
-  background-color: #eee;
-  border-radius: 32px;
-}
-
-/* 滚动条轨道 */
-::-webkit-scrollbar-track {
-  border-radius: 32px;
-}
-
-
-/*.markdown-content span a {
-  position: relative;
-  overflow: visible; !* 让内容超出父元素布局 *!
-  clip: auto;
-  display: inline-block;
-  text-decoration: none;
-  color: #7269FB;
-  line-height: 20px;
-  width: 20px;
-  margin-right: 10px;
-  text-align: center;
-  font-size: 12px;
-  background: #7269FB1A;
-  border-radius: 50%;
-}
-
-.markdown-content span a:hover {
-  color: white;
-  background: #7269FB;
-  border-radius: 50%; !* 将伪元素的边框半径设置为50%，使背景呈现圆形 *!
-}
-
-.markdown-content span:hover {
-  border-bottom: 1px dashed #7269FB;
-}
-
-.markdown-content span a span {
-  visibility: hidden;
-  max-width: 300px;
-  min-width: 250px;
-  max-height: 500px;
-  overflow-y: scroll;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: left;
-  position: absolute;
-  z-index: 10;
-  top: 30px;
-  left: 0;
-  right: 0;
-}
-
-.markdown-content span a:hover span {
-  visibility: visible;
-}*/
-</style>
+示例图 ![image](img_1.png)
