@@ -1,6 +1,9 @@
-# zx-markdown
+# zx-markdown使用
 
-```vue
+```angular2html
+// import ZxMarkdown from "zx-markdown";
+// import "zx-markdown/zx-markdown.css";
+
 
 <zx-markdown v-model:markdownValue="value" :loading="false"/>
 
