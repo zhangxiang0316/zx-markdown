@@ -71,12 +71,12 @@ export default function quote(markdown) {
                           margin-right: 10px;
                           text-align: center;
                           font-size: 12px;
-                          background: #7269FB1A;
+                          background: #7269FB1A!important;
                           border-radius: 50%;
                         }
                         .come-from:hover {
                           color: white;
-                          background: #7269FB;
+                          background: #7269FB!important;
                           border-radius: 50%;
                         }
                        

@@ -17250,10 +17250,10 @@ const xs = /* @__PURE__ */ F0(gs), ys = (e, t) => {
       });
     }), (a, s) => (fr(), dr("div", {
       innerHTML: c.value,
-      class: "markdown-content"
+      class: "markdown-content markdown-body"
     }, null, 8, vs));
   }
-}, ws = /* @__PURE__ */ ys(ks, [["__scopeId", "data-v-4f3d31f4"]]), As = (e) => {
+}, ws = /* @__PURE__ */ ys(ks, [["__scopeId", "data-v-9c1b1cc5"]]), As = (e) => {
   e.component("zx-markdown", ws);
 };
 export {
