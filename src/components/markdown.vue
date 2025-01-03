@@ -72,20 +72,40 @@ onMounted(() => {
 })
 </script>
 <style scoped>
-:deep(ul li) {
-  list-style-type: none;
+.markdown-body {
+  background: transparent !important;
+}
+
+:deep(pre) {
+  margin-top: 10px;
+  padding: 0 !important;
 }
 
 :deep(.hljs) {
   background: #50556B !important;
-  border-radius: 3px;
+  border-radius: 0 0 3px 3px;
   padding: 5px 5px 5px 40px !important;
   position: relative;
+  margin-bottom: 10px;
+  margin-top: 0;
+  overflow-x: scroll;
+}
+
+.markdown-content {
+  line-height: 32px;
 }
 
 :deep(code) {
-  color: #ccc !important;
-  line-height: 25px;
+  line-height: 32px;
+  background: #e8edf8;
+  margin: 0 4px;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+:deep(.hljs code) {
+  line-height: 32px;
+  background: none;
 }
 
 :deep(.line-numbers-rows) {
@@ -95,7 +115,7 @@ onMounted(() => {
   left: 5px;
   width: 20px;
   font-size: 12px;
-  line-height: 25px;
+  line-height: 32px !important;
   text-align: center;
   user-select: none;
   counter-reset: linenumber;
@@ -113,26 +133,11 @@ onMounted(() => {
   display: block;
 }
 
-:deep(.code-actions) {
-  position: absolute;
-  right: 15px;
-  top: 8px;
-  opacity: 0;
-  transition: all 0.2s;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  z-index: 1;
-}
-
-:deep(.hljs:hover) .code-actions {
-  opacity: 1;
-}
-
 :deep(.copy-btn),
-:deep(.lanage-name) {
+:deep(.language-name) {
   font-size: 12px;
-  color: #999;
+  padding: 0 5px;
+  color: #aaa !important;
   text-decoration: none;
 }
 
@@ -141,10 +146,6 @@ onMounted(() => {
 }
 
 :deep(.copy-btn:hover) {
-  color: #fff;
-}
-
-:deep(.lanage-name:hover) {
-  color: #fff;
+  color: #fff !important;
 }
 </style>

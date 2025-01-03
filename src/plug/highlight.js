@@ -36,13 +36,36 @@ hljs.registerLanguage('css', css);
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('go', go);
 hljs.registerLanguage('cpp', cpp);
+const downImage = `
+    <svg t="1735869332035" className="icon" viewBox="0 0 1024 1024" version="1.1"
+         xmlns="http://www.w3.org/2000/svg" p-id="4238" width="200" height="200">
+        <path
+            d="M200.430933 405.162667a40.96 40.96 0 0 1 57.890134 0L509.952 656.247467a27.306667 27.306667 0 0 0 38.570667 0l251.4944-251.153067a40.96 40.96 0 1 1 57.890133 58.026667l-251.4944 251.0848a109.226667 109.226667 0 0 1-154.282667 0L200.362667 463.121067a40.96 40.96 0 0 1 0-57.9584z"
+            fill="#000000" p-id="4239"></path>
+    </svg>`
 
 export default function hljsPlugin(md) {
     md.options.highlight = function (str, lang) {
         const codeIndex = parseInt(Date.now()) + Math.floor(Math.random() * 10000000)
-        let html = `<div class="code-actions">
-      ${lang ? `<div class="lanage-name">${lang}</div>` : ''}
-      <a class="copy-btn" data-clipboard-action="copy" data-clipboard-target="#copy${codeIndex}">复制</a>
+        let html = `<div class="code-actions" style="position: sticky; top: 0; background-color: #7e85a3 ; z-index: 1; display: flex; justify-content: start; padding: 5px;">
+                            <div class="toggle-btn" onclick="toggleCode('code${codeIndex}')">${downImage}</div>
+                              ${lang ? `<div class="language-name">${lang}</div>` : ''}
+                              <div style="flex: 1"></div>
+                              <a class="copy-btn"  data-clipboard-action="copy" data-clipboard-target="#copy${codeIndex}">复制</a>
+                              <style>
+                              .toggle-btn{
+                                cursor: pointer;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                              }
+                              svg{
+                              width: 15px;
+                              height: 15px;
+                              }
+                             
+                              
+</style>
     </div>`
         const linesLength = str.split(/\n/).length - 1
         // 生成行号
@@ -54,14 +77,25 @@ export default function hljsPlugin(md) {
         if (lang && hljs.getLanguage(lang)) {
             try {
                 const preCode = hljs.highlight(lang, str, true).value
-                html = html + preCode
-                return `<pre class="hljs"><code>${html}</code>${linesNum}</pre><textarea style="position: absolute;top: -9999px;left: -9999px;z-index: -9999;" id="copy${codeIndex}">${str.replace(/<\/textarea>/g, '&lt;/textarea>')}</textarea>`
+                return `${html}<pre id="code${codeIndex}" class="hljs" style="overflow-x: auto;"><code>${preCode}</code>${linesNum}</pre><textarea style="position: absolute;top: -9999px;left: -9999px;z-index: -9999;" id="copy${codeIndex}">${str.replace(/<\/textarea>/g, '&lt;/textarea>')}</textarea>`
             } catch (error) {
                 console.log(error)
             }
         }
         const preCode = md.utils.escapeHtml(str)
-        html = html + preCode
-        return `<pre class="hljs"><code>${html}</code>${linesNum}</pre><textarea style="position: absolute;top: -9999px;left: -9999px;z-index: -9999;" id="copy${codeIndex}">${str.replace(/<\/textarea>/g, '&lt;/textarea>')}</textarea>`
+        return `${html}<pre id="code${codeIndex}" class="hljs" style="overflow-x: auto;"><code>${preCode}</code>${linesNum}</pre><textarea style="position: absolute;top: -9999px;left: -9999px;z-index: -9999;" id="copy${codeIndex}">${str.replace(/<\/textarea>/g, '&lt;/textarea>')}</textarea>`
+    }
+}
+
+// 修改 toggleCode 函数以切换图标
+window.toggleCode = function (id) {
+    const codeBlock = document.getElementById(id);
+    const button = codeBlock.previousElementSibling.querySelector('.toggle-btn');
+    if (codeBlock.style.display === 'none') {
+        codeBlock.style.display = 'block';
+        button.style.transform = 'rotate(0deg)'; // 恢复初始状态
+    } else {
+        codeBlock.style.display = 'none';
+        button.style.transform = 'rotate(180deg)'; // 旋转180度
     }
 }

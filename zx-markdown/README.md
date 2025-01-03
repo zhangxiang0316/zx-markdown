@@ -1,38 +1,27 @@
-<template>
-  <zx-markdown v-model:markdownValue="value" :loading="false"/>
-</template>
+# zx-markdown使用
 
-<script setup>
-import {ref} from "vue";
-// 使用动态导入
-const value = ref(`
-
-\`\`\`javascript
-
-// 代码高亮
-import hljs from "highlight.js/lib/core";
-import "highlight.js/styles/ir-black.css";
-import bash from 'highlight.js/lib/languages/bash'
-import javascript from 'highlight.js/lib/languages/javascript';
-import typescript from 'highlight.js/lib/languages/typescript';
-import java from 'highlight.js/lib/languages/java';
-import sql from 'highlight.js/lib/languages/sql';
-import nginx from 'highlight.js/lib/languages/nginx';
-import json from 'highlight.js/lib/languages/json';
-import yaml from 'highlight.js/lib/languages/yaml';
-import xml from 'highlight.js/lib/languages/xml';
-import shell from 'highlight.js/lib/languages/shell'
-hljs.registerLanguage('go', go);
-hljs.registerLanguage('cpp', cpp);
-
-\`\`\`
+```angular2html
+// import ZxMarkdown from "zx-markdown";
+// import "zx-markdown/zx-markdown.css";
 
 
-fdasfsdafsaf
+<zx-markdown v-model:markdownValue="value" :loading="false"/>
 
+支持字段loading 为true时显示加载中，不渲染echarts图表
 
-12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"},{"index":2,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"}]」]]
-\`\`\`echarts
+```
+
+## 引用
+
+```angular2html
+12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"},{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"}]」]] 12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世"}」]]
+```
+
+示例图 ![image](./public/img.png)
+
+## echarts图表
+
+```echarts
 {
     "backgroundColor": "#ccc",
     "angleAxis": {
@@ -123,34 +112,6 @@ fdasfsdafsaf
     ]
 }
 
-\`\`\`
+```
 
-`)
-
-</script>
-
-<style>
-.markdown-content li {
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-/* 整个滚动条 */
-::-webkit-scrollbar {
-  /* 对应纵向滚动条的宽度 */
-  width: 5px;
-  /* 对应横向滚动条的宽度 */
-  height: 5px;
-}
-
-/* 滚动条上的滚动滑块 */
-::-webkit-scrollbar-thumb {
-  background-color: #eee;
-  border-radius: 32px;
-}
-
-/* 滚动条轨道 */
-::-webkit-scrollbar-track {
-  border-radius: 32px;
-}
-</style>
+示例图 ![image](./public/img_1.png)
