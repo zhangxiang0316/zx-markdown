@@ -1,9 +1,6 @@
-# zx-markdown使用
+# zx-markdown
 
-```angular2html
-// import ZxMarkdown from "zx-markdown";
-// import "zx-markdown/zx-markdown.css";
-
+```vue
 
 <zx-markdown v-model:markdownValue="value" :loading="false"/>
 
@@ -17,7 +14,7 @@
 12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"},{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世导"}]」]] 12月2日下午，[[在海南省三亚市海棠区海南环岛旅游公路上发生了一起车祸，导致一名年轻女性机车骑手去世。「[{"index":1,"href":"https://baidu.com","value":"导致一名年轻女性机车骑手去世"}」]]
 ```
 
-示例图 ![image](./public/img.png)
+示例图 ![image](https://raw.githubusercontent.com/zhangxiang0316/zx-markdown/master/public/img.png)
 
 ## echarts图表
 
@@ -114,4 +111,4 @@
 
 ```
 
-示例图 ![image](./public/img_1.png)
+示例图 ![image](https://raw.githubusercontent.com/zhangxiang0316/zx-markdown/master/public/img_1.png)

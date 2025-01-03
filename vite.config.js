@@ -28,7 +28,7 @@ export default defineConfig({
                         // 生成 package.json 文件
                         const packageJson = {
                             name: 'zx-markdown',
-                            version: '0.0.5',
+                            version: '0.0.6',
                             description: "markdown解析器，支持语法高亮，数学公式，代码块，任务列表，echarts图",
                             main: "index.es.js",
                             keywords: ["markdown","echarts","quote"],

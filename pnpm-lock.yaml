@@ -48,8 +48,8 @@ importers:
         specifier: ^3.5.13
         version: 3.5.13
       zx-markdown:
-        specifier: ^0.0.5
-        version: 0.0.5
+        specifier: ^0.0.6
+        version: 0.0.6
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
@@ -529,8 +529,8 @@ packages:
       typescript:
         optional: true
 
-  zx-markdown@0.0.5:
-    resolution: {integrity: sha512-y2hFAES/4IRttaFCc0kwWU9WIfILdu6hnW2lFQyHSq+HD59kLfFSbYTgvDxBtfDS3LTwRC/gptdK6P1RlE7Ocw==}
+  zx-markdown@0.0.6:
+    resolution: {integrity: sha512-aUUvQaTdL2OEBHLFSdKUlTQv4lNpBu8opAmkZUjYEbFfJ1+NY++bk64U2pOz8yewOnxRWdxG0CL4G09cNMYZvw==}
 
 snapshots:
 
@@ -906,4 +906,4 @@ snapshots:
       '@vue/server-renderer': 3.5.13(vue@3.5.13)
       '@vue/shared': 3.5.13
 
-  zx-markdown@0.0.5: {}
+  zx-markdown@0.0.6: {}
