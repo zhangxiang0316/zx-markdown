@@ -76,6 +76,10 @@ onMounted(() => {
   background: transparent !important;
 }
 
+.markdown-content {
+  line-height: 32px;
+}
+
 :deep(pre) {
   margin-top: 10px;
   padding: 0 !important;
@@ -91,10 +95,6 @@ onMounted(() => {
   overflow-x: scroll;
 }
 
-.markdown-content {
-  line-height: 32px;
-}
-
 :deep(code) {
   line-height: 32px;
   background: #e8edf8;
@@ -106,46 +106,5 @@ onMounted(() => {
 :deep(.hljs code) {
   line-height: 32px;
   background: none;
-}
-
-:deep(.line-numbers-rows) {
-  position: absolute;
-  pointer-events: none;
-  top: 5px;
-  left: 5px;
-  width: 20px;
-  font-size: 12px;
-  line-height: 32px !important;
-  text-align: center;
-  user-select: none;
-  counter-reset: linenumber;
-}
-
-:deep(.line-numbers-rows span) {
-  pointer-events: none;
-  display: block;
-  counter-increment: linenumber;
-}
-
-:deep(.line-numbers-rows span:before) {
-  content: counter(linenumber);
-  color: #999;
-  display: block;
-}
-
-:deep(.copy-btn),
-:deep(.language-name) {
-  font-size: 12px;
-  padding: 0 5px;
-  color: #aaa !important;
-  text-decoration: none;
-}
-
-:deep(.copy-btn) {
-  cursor: pointer;
-}
-
-:deep(.copy-btn:hover) {
-  color: #fff !important;
 }
 </style>

@@ -40,33 +40,66 @@ const downImage = `
     <svg t="1735869332035" className="icon" viewBox="0 0 1024 1024" version="1.1"
          xmlns="http://www.w3.org/2000/svg" p-id="4238" width="200" height="200">
         <path
-            d="M200.430933 405.162667a40.96 40.96 0 0 1 57.890134 0L509.952 656.247467a27.306667 27.306667 0 0 0 38.570667 0l251.4944-251.153067a40.96 40.96 0 1 1 57.890133 58.026667l-251.4944 251.0848a109.226667 109.226667 0 0 1-154.282667 0L200.362667 463.121067a40.96 40.96 0 0 1 0-57.9584z"
-            fill="#000000" p-id="4239"></path>
+            d="M200.430933 405.162667a40.96 40.96 0 0 1 57.890134 0L509.952 656.247467a27.306667
+             27.306667 0 0 0 38.570667 0l251.4944-251.153067a40.96 40.96 0 1 1 57.890133 58.026667l-251.4944 251.0848a109.226667 109.226667 0 0 1-154.282667 0L200.362667 463.121067a40.96 40.96 0 0 1 0-57.9584z"
+            fill="#aaa" p-id="4239"></path>
     </svg>`
+
+const baseStyle = `.toggle-btn{
+                                    cursor: pointer;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                  }
+                                  svg{
+                                      width: 15px;
+                                      height: 15px;
+                                  }
+                                  .copy-btn,.language-name{
+                                      font-size: 12px;
+                                      padding: 0 5px;
+                                      color: #aaa !important;
+                                      text-decoration: none;
+                                  }
+                                  .copy-btn{
+                                    cursor: pointer;
+                                  }
+                                  .copy-btn:hover{
+                                        color: #fff !important;
+                                  }
+                                .line-numbers-rows{
+                                    position: absolute;
+                                      pointer-events: none;
+                                      top: 5px;
+                                      left: 5px;
+                                      width: 20px;
+                                      font-size: 12px;
+                                      line-height: 32px !important;
+                                      text-align: center;
+                                      user-select: none;
+                                      counter-reset: linenumber;
+                                }
+                                .line-numbers-rows span{
+                                    pointer-events: none;
+                                    display: block;
+                                    counter-increment: linenumber;
+                                }
+                                .line-numbers-rows span:before{
+                                      content: counter(linenumber);
+                                      color: #999;
+                                      display: block;
+                                }       `
 
 export default function hljsPlugin(md) {
     md.options.highlight = function (str, lang) {
         const codeIndex = parseInt(Date.now()) + Math.floor(Math.random() * 10000000)
         let html = `<div class="code-actions" style="position: sticky; top: 0; background-color: #7e85a3 ; z-index: 1; display: flex; justify-content: start; padding: 5px;">
                             <div class="toggle-btn" onclick="toggleCode('code${codeIndex}')">${downImage}</div>
-                              ${lang ? `<div class="language-name">${lang}</div>` : ''}
-                              <div style="flex: 1"></div>
-                              <a class="copy-btn"  data-clipboard-action="copy" data-clipboard-target="#copy${codeIndex}">复制</a>
-                              <style>
-                              .toggle-btn{
-                                cursor: pointer;
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                              }
-                              svg{
-                              width: 15px;
-                              height: 15px;
-                              }
-                             
-                              
-</style>
-    </div>`
+                             ${lang ? `<div class="language-name">${lang}</div>` : ''}
+                             <div style="flex: 1"></div>
+                             <a class="copy-btn"  data-clipboard-action="copy" data-clipboard-target="#copy${codeIndex}">复制</a>
+                             <style> ${baseStyle} </style>
+                        </div>`
         const linesLength = str.split(/\n/).length - 1
         // 生成行号
         let linesNum = '<span aria-hidden="true" class="line-numbers-rows">'
